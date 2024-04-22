@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logística Hospitalar</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    h1 {
+        margin-bottom: 10px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    .container {
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+    <h1>Logística Hospitalar</h1>
+
+    <div class="container">
+        <h2>Listagem de Pacientes</h2>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Quarto</th>
+            </tr>
+            <tr>
+                <td>João Silva</td>
+                <td>45</td>
+                <td>101</td>
+            </tr>
+            <tr>
+                <td>Maria Oliveira</td>
+                <td>32</td>
+                <td>102</td>
+            </tr>
+            <!-- Adicione mais pacientes conforme necessário -->
+        </table>
+    </div>
+
+    <div class="container">
+        <h2>Adicionar Paciente</h2>
+        <form action="#">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome"><br><br>
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade" name="idade"><br><br>
+            <label for="quarto">Quarto:</label>
+            <input type="text" id="quarto" name="quarto"><br><br>
+            <input type="submit" value="Adicionar Paciente">
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Informações do Quarto</h2>
+        <p>O quarto 101 está ocupado por João Silva.</p>
+        <p>O quarto 102 está ocupado por Maria Oliveira.</p>
+        <!-- Adicione mais informações sobre os quartos conforme necessário -->
+    </div>
+</body>
+</html>
