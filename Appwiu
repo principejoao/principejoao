@@ -1,0 +1,161 @@
+public class AppWiu {
+
+    // Método principal
+    public static void main(String[] args) {
+        // Inicialização do aplicativo
+        AppWiu app = new AppWiu();
+        // Simulação de interação do usuário
+        app.iniciarApp();
+    }
+
+    // Método para iniciar o aplicativo
+    public void iniciarApp() {
+        // Simulação de login ou cadastro de usuário
+        Usuario usuario = autenticarOuCadastrarUsuario();
+
+        // Se o usuário for válido
+        if (usuario != null) {
+            // Exibir menu principal
+            exibirMenuPrincipal(usuario);
+        } else {
+            // Exibir mensagem de erro e encerrar o aplicativo
+            System.out.println("Usuário inválido. Encerrando o aplicativo.");
+        }
+    }
+
+    // Método para autenticar ou cadastrar um usuário
+    public Usuario autenticarOuCadastrarUsuario() {
+        // Simulação de lógica de autenticação ou cadastro
+        // Retorna o usuário autenticado ou cadastrado
+        return new Usuario("João", "joao123", "senha123");
+    }
+
+    // Método para exibir o menu principal
+    public void exibirMenuPrincipal(Usuario usuario) {
+        // Exibir opções do menu
+        System.out.println("Bem-vindo, " + usuario.getNome() + "!");
+        System.out.println("Escolha o tipo de transporte:");
+        System.out.println("1. Wiudriver");
+        System.out.println("2. Wiustantanio");
+        System.out.println("3. Wiumoto");
+        System.out.println("4. Sair");
+
+        // Simular escolha do usuário
+        int opcaoTransporte = obterOpcaoMenu();
+
+        // Executar ação com base na opção escolhida
+        switch (opcaoTransporte) {
+            case 1:
+                realizarViagem(new Wiudriver());
+                break;
+            case 2:
+                realizarViagem(new Wiustantanio());
+                break;
+            case 3:
+                realizarViagem(new Wiumoto());
+                break;
+            case 4:
+                System.out.println("Saindo do aplicativo. Até logo!");
+                break;
+            default:
+                System.out.println("Opção inválida.");
+                exibirMenuPrincipal(usuario);
+        }
+    }
+
+    // Método para obter a opção do menu escolhida pelo usuário
+    public int obterOpcaoMenu() {
+        // Simulação de entrada do usuário
+        return 1; // Supondo que o usuário escolheu a opção 1
+    }
+
+    // Método para realizar uma viagem com o meio de transporte selecionado
+    public void realizarViagem(MeioTransporte meioTransporte) {
+        // Simulação de solicitação de viagem
+        System.out.println("Solicitando uma viagem com " + meioTransporte.getNome());
+        // Simulação de cálculo de preço com base na distância entre as paradas
+        double preco = meioTransporte.calcularPreco(10); // Supondo uma distância de 10 km
+        System.out.println("Preço da viagem: R$" + preco);
+
+        // Simulação de escolha da forma de pagamento
+        String formaPagamento = escolherFormaPagamento();
+        System.out.println("Pagamento selecionado: " + formaPagamento);
+
+        // Simulação de conclusão da viagem
+        System.out.println("Viagem concluída. Obrigado por utilizar o aplicativo!");
+    }
+
+    // Método para escolher a forma de pagamento
+    public String escolherFormaPagamento() {
+        // Simulação de escolha da forma de pagamento pelo usuário
+        // Neste caso, escolhendo aleatoriamente entre crédito/débito, dinheiro e pix
+        String[] formasPagamento = {"Crédito/Débito", "Dinheiro", "Pix"};
+        int indice = (int) (Math.random() * formasPagamento.length);
+        return formasPagamento[indice];
+    }
+
+    // Classe para representar um usuário
+    public class Usuario {
+        private String nome;
+        private String login;
+        private String senha;
+
+        public Usuario(String nome, String login, String senha) {
+            this.nome = nome;
+            this.login = login;
+            this.senha = senha;
+        }
+
+        public String getNome() {
+            return nome;
+        }
+    }
+
+    // Interface para definir um meio de transporte
+    public interface MeioTransporte {
+        String getNome();
+
+        double calcularPreco(int distancia);
+    }
+
+    // Classe para representar o meio de transporte Wiudriver
+    public class Wiudriver implements MeioTransporte {
+        @Override
+        public String getNome() {
+            return "Wiudriver";
+        }
+
+        @Override
+        public double calcularPreco(int distancia) {
+            // Simulação de cálculo de preço com base na distância
+            return distancia * 0.5; // Preço fictício por km
+        }
+    }
+
+    // Classe para representar o meio de transporte Wiustantanio
+    public class Wiustantanio implements MeioTransporte {
+        @Override
+        public String getNome() {
+            return "Wiustantanio";
+        }
+
+        @Override
+        public double calcularPreco(int distancia) {
+            // Simulação de cálculo de preço com base na distância
+            return distancia * 0.8; // Preço fictício por km
+        }
+    }
+
+    // Classe para representar o meio de transporte Wiumoto
+    public class Wiumoto implements MeioTransporte {
+        @Override
+        public String getNome() {
+            return "Wiumoto";
+        }
+
+        @Override
+        public double calcularPreco(int distancia) {
+            // Simulação de cálculo de preço com base na distância
+            return distancia * 0.3; // Preço fictício por km
+        }
+    }
